@@ -7,7 +7,10 @@ export const dataSourceOptions: DataSourceOptions = {
   username: 'root',
   password: '123456',
   database: 'vehicule_api',
-  migrations: [`src/database/migrations/*.js`],
+  migrations: [`${__dirname}/migrations/{*.ts,*.js}`],
+  // migrations: [`src/database/migrations/{*.ts,*.js}`],
+  // entities: [`src/vehicules/typeorm/entites/`],
+  entities: [__dirname + '/../**/*.entity.{js,ts}'],//accede a la entidad
 };
 
 const dataSource = new DataSource(dataSourceOptions);
