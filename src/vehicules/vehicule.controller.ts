@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 
 import { CreateParams, VehiculeService } from "./vehicule.service";
 
@@ -9,6 +9,11 @@ export class VehiculeController {
   @Get()
   getAll() {
     return this.vehiculeService.getAll();
+  }
+
+  @Get(':id')
+  getId(@Param('id') id: string) {
+    return this.vehiculeService.getId(id);
   }
 
   @Post()

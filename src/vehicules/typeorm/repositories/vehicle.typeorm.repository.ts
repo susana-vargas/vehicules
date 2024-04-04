@@ -22,5 +22,14 @@ export class VehiculeTypeOrmRepository {
 
   async findAll() {
     return this.repository.query('select * from vehicules')
+    // return this.repository.find({where: {model: 'toyota'}})
+  }
+
+
+  async findId(id: string): Promise<VehiculeEntity> {
+    //se pasa el ID como un objeto de opciones de búsqueda con el campo where
+    //que contiene el ID que se está buscando
+    return await this.repository.findOne({where: {id}});
+    
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { type } from "os";
-import { VehiculeTypeOrmRepository } from "./typeorm/repositories/vehicle.typeorm.repository";
+
 import { Vehicle } from "./vehicle";
+import { VehiculeTypeOrmRepository } from "./typeorm/repositories/vehicle.typeorm.repository";
 
 export type CreateParams = {
   id: string;
@@ -22,6 +22,10 @@ export class VehiculeService {
     const vehicule = new Vehicle(id, plate, model, brand);
     console.log('Vehículo creado correctamente');    
     return this.vahiculeRepository.save(vehicule);
+  }
+
+  getId(id: string) {
+    return this.vahiculeRepository.findId(id);
   }
 
 }
